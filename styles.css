@@ -1,0 +1,16 @@
+header{
+    background-color: rgb(255, 152, 115);
+    color: blueviolet;
+    text-align: center;
+    padding: 2rem;
+}
+
+h1{
+    color: blueviolet;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    align-self: center;
+}
