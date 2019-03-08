@@ -1,15 +1,11 @@
 const express = require('express')
 const app = express()
-const path = require('path')
 
-const hostname = '0.0.0.0'   // set constants
+const hostname = '0.0.0.0'    // allows access from remote computers
 const port = 3002
 
-app.use(express.static(path.join(__dirname, './styles')))
-
 app.get('/', function (req, res) {
-  //res.send('Welcome home!')
-  res.sendFile(path.join(__dirname, '/index.html'))
+  res.send('Welcome home!')
 })
 
 app.get('/hello', (req, res) => {
@@ -20,12 +16,12 @@ app.get('/big',  (req, res) =>{
   res.send('<h1>Hello World!</h1>')
 })
 
-app.get('/greeting',  (req, res) =>{
-  res.send('Hello! Nice to meet you.')
+app.get('/greeting/:id',  (req, res) =>{
+  res.send('Hello! The id was ' + req.params.id)
 })
 
-app.get('/yo/buddy',  (req, res) =>{
-  res.send('<h1>Yo, buddy!</h1>')
+app.get('/yo/:buddy',  (req, res) =>{
+  res.send('<h1>Yo, ' + req.params.buddy + '!</h1>')
 })
 
 // handle non-existant routes
